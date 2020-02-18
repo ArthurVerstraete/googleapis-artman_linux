@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "#!/usr/bin/python3" >> ./artman
+echo "" >> ./artman
+echo "# -*- coding: utf-8 -*-" >> ./artman
+echo "import re" >> ./artman
+echo "import sys" >> ./artman
+echo "" >> ./artman
+echo "from artman.cli.main import main" >> ./artman
+echo "" >> ./artman
+echo "if __name__ == '__main__':" >> ./artman
+echo "    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])" >> ./artman
+echo "    sys.exit(main())" >> ./artman
+
+chmod u+x ./artman
+sudo mv ./artman /usr/bin
